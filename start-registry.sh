@@ -10,5 +10,5 @@ IFS=$'\n\t'
 CUR_DIR=$(cd $(dirname $0) && pwd)
 
 pushd $CUR_DIR
-docker-compose up
+docker-compose up -d
 popd
