@@ -1,15 +1,16 @@
 version: "3"
 services:
-  image: registry:2
-  ports:
-    - 5000:5000
-  volumes:
-    - /home/docker/docker-registry-sample/data:/var/lib/registry
-    - /home/docker/docker-registry-sample/certs:/certs
-    - /home/docker/docker-registry-sample/auth:/auth
-  environment:
-    - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/server.crt
-    - REGISTRY_HTTP_TLS_KEY=/certs/server.key
-    - REGISTRY_AUTH=htpasswd
-    - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
-    - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd
+  registry:
+    image: "registry:2"
+    ports:
+      - 5000:5000
+    volumes:
+      - /home/docker/docker-registry-sample/data:/var/lib/registry
+      - /home/docker/docker-registry-sample/certs:/certs
+      - /home/docker/docker-registry-sample/auth:/auth
+    environment:
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/server.crt
+      REGISTRY_HTTP_TLS_KEY: /certs/server.key
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
